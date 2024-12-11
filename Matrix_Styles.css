@@ -1,12 +1,27 @@
-.td {
-    width: 25%;
-    height: 25%;
+/* General reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+
+/* Body Styling */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* Container for centralizing content */
 
 .container {
     width: 90%;
     max-width: 500px;
-    /* Adjust maximum width as needed */
     margin: 0 auto;
     text-align: center;
     display: flex;
@@ -15,65 +30,186 @@
 }
 
 
-/* Center the operators div */
+/* Centering #matrixDiv */
 
-.containerRow {
+#matrixDiv {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Full viewport height */
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 
-/* Adjust the CSS for #operators */
+/* Title above the Matrix */
 
-#switch,
-#multiply,
-#add {
-    position: relative;
-    margin-top: 20px;
+h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 
-/* Center the table */
+/* Matrix Table Styling */
 
 #Matrix {
-    margin: 20px auto;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 
-/* Center the button */
+/* Header Styling for Matrix */
 
-#submit {
+#Matrix th {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+
+/* Data Cell Styling for Matrix */
+
+#Matrix td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+}
+
+
+/* Hover Effect for Matrix */
+
+#Matrix tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Button Styling */
+
+button {
     margin-top: 20px;
+    background-color: #007bff;
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 
-/* Position labels above selects */
+/* Button Hover Effect */
 
-.container label {
-    display: block;
-    margin-bottom: 5px;
+button:hover {
+    background-color: #0056b3;
 }
 
 
-/* Responsive styles */
+/* Form Styling */
+
+input[type="text"],
+select {
+    padding: 12px;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+/* Responsive Styles */
 
 @media (max-width: 768px) {
+    #Matrix {
+        font-size: 1rem;
+    }
+    #Matrix th,
+    #Matrix td {
+        padding: 10px;
+    }
+    button {
+        font-size: 1.4rem;
+    }
     .container {
-        width: 90%;
+        padding: 10px;
+    }
+    .containerRow {
+        flex-direction: column;
+    }
+    .containerRow select,
+    .containerRow input {
+        width: 100%;
     }
 }
 
 @media (max-width: 576px) {
+    #Matrix th,
+    #Matrix td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    button {
+        font-size: 1.2rem;
+    }
     .container {
         width: 100%;
     }
 }
 
 
-/* Position calculateButton under switch and multiply */
+/* Label Styling */
 
-#calculateButton {
+.container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #333;
+}
+
+
+/* Centered Button Container */
+
+.center_buttons_finish_reset {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
+}
+
+
+/* Operations Section */
+
+#byYou select,
+#switch select,
+#multiply select,
+#add select {
+    width: 100%;
+}
+
+
+/* Add padding and margin for smaller devices */
+
+#matrixDiv input[type="text"] {
+    padding: 10px;
+}
+
+
+/* Adding some spacing between form inputs */
+
+input[type="text"],
+select {
+    margin-bottom: 15px;
 }

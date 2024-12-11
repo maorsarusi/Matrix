@@ -265,7 +265,7 @@ function createMatrix(color) {
     ROWS = parseInt(document.getElementById("indexRow").value);
     COLUMNS = parseInt(document.getElementById("indexColumns").value) + 1;
     document.getElementById("startDiv").style.display = "none";
-    document.getElementById("matrixDiv").style.display = "block";
+    document.getElementById("matrixDiv").style.display = "flex";
 
     var table = document.getElementById("Matrix");
     for (let i = 0; i < ROWS; i++) {
