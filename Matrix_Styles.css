@@ -13,40 +13,50 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     color: #333;
-    line-height: 1.6;
+    height: 100vh;
+    /* Set the height of the body to the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Prevent scrolling */
 }
 
 
 /* Container for centralizing content */
 
 .container {
-    width: 90%;
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    width: 90%;
+    /* Take up 90% of the screen width */
+    max-width: 500px;
+    /* Set maximum width for larger screens */
 }
 
 
-/* Centering #matrixDiv */
+/* Matrix Content (Ensure it takes full height of the viewport) */
 
 #matrixDiv {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     /* Full viewport height */
-    flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 
-/* Title above the Matrix */
+/* Title Styling */
 
 h2 {
     font-size: 2rem;
@@ -70,8 +80,8 @@ h2 {
 #Matrix th {
     background-color: #007bff;
     color: #fff;
-    font-size: 1.2rem;
-    padding: 12px;
+    font-size: 1rem;
+    padding: 8px;
     text-align: center;
     border: 1px solid #ddd;
 }
@@ -80,32 +90,28 @@ h2 {
 /* Data Cell Styling for Matrix */
 
 #Matrix td {
-    padding: 12px;
+    padding: 8px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
     border: 1px solid #ddd;
-}
-
-
-/* Hover Effect for Matrix */
-
-#Matrix tr:hover {
-    background-color: #f1f1f1;
 }
 
 
 /* Button Styling */
 
 button {
-    margin-top: 20px;
+    margin-top: 15px;
     background-color: #007bff;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #fff;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
+    max-width: 300px;
+    /* Limit button width on larger screens */
 }
 
 
@@ -116,100 +122,76 @@ button:hover {
 }
 
 
-/* Form Styling */
+/* Input fields Styling */
 
 input[type="text"],
 select {
-    padding: 12px;
+    padding: 10px;
     margin-top: 10px;
-    width: 100%;
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-bottom: 10px;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 
-/* Responsive Styles */
+/* Select Styling (Center content) */
+
+select {
+    text-align: center;
+    text-align-last: center;
+}
+
+
+/* Prevent overflow */
+
+html,
+body {
+    overflow: hidden;
+    /* Prevent scrolling */
+}
+
+
+/* Media Queries for Responsiveness */
+
+
+/* For smaller screens (mobile), reduce element size */
 
 @media (max-width: 768px) {
-    #Matrix {
-        font-size: 1rem;
-    }
-    #Matrix th,
-    #Matrix td {
-        padding: 10px;
-    }
-    button {
-        font-size: 1.4rem;
-    }
-    .container {
-        padding: 10px;
-    }
-    .containerRow {
-        flex-direction: column;
-    }
-    .containerRow select,
-    .containerRow input {
-        width: 100%;
-    }
-}
-
-@media (max-width: 576px) {
-    #Matrix th,
-    #Matrix td {
-        padding: 8px;
-        font-size: 0.9rem;
+    h2 {
+        font-size: 1.5rem;
     }
     button {
         font-size: 1.2rem;
     }
-    .container {
-        width: 100%;
+    #Matrix th,
+    #Matrix td {
+        font-size: 0.8rem;
+        padding: 6px;
     }
 }
 
 
-/* Label Styling */
+/* For very small screens (mobile), adjust layout */
 
-.container label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 1rem;
-    color: #333;
-}
-
-
-/* Centered Button Container */
-
-.center_buttons_finish_reset {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-
-/* Operations Section */
-
-#byYou select,
-#switch select,
-#multiply select,
-#add select {
-    width: 100%;
-}
-
-
-/* Add padding and margin for smaller devices */
-
-#matrixDiv input[type="text"] {
-    padding: 10px;
-}
-
-
-/* Adding some spacing between form inputs */
-
-input[type="text"],
-select {
-    margin-bottom: 15px;
+@media (max-width: 576px) {
+    #matrixDiv {
+        padding: 5px;
+    }
+    button {
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    #Matrix th,
+    #Matrix td {
+        font-size: 0.7rem;
+        padding: 5px;
+    }
+    /* Ensure matrix fits within screen on mobile */
+    #Matrix {
+        font-size: 0.8rem;
+    }
 }
