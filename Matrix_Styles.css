@@ -44,10 +44,30 @@ body {
     max-height: 300px;
     /* Set a max height for the matrix */
     width: 100%;
+    /* Ensure the container uses the full width */
     padding: 10px;
     box-sizing: border-box;
     margin-top: 20px;
     /* Ensure some space above the matrix */
+}
+
+
+/* Matrix Table */
+
+#Matrix {
+    width: 100%;
+    /* Dynamically fill the width of the container */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: auto;
+    /* Allow columns to resize based on content */
+}
+
+#Matrix th,
+#Matrix td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
 }
 
 
@@ -107,4 +127,50 @@ body {
     align-items: center;
     /* Center horizontally */
     width: 100%;
+}
+
+
+/* Media Queries for Smaller Screens (Responsive Design) */
+
+
+/* Small screens (mobile devices) */
+
+@media (max-width: 600px) {
+    /* Adjust font size for smaller screens */
+    button {
+        font-size: 1rem;
+        /* Make buttons slightly smaller */
+    }
+    select {
+        font-size: 0.9rem;
+        /* Reduce font size in selects */
+    }
+    #Matrix th,
+    #Matrix td {
+        padding: 5px;
+        /* Reduce padding in table cells */
+    }
+    #matrixContainer {
+        max-height: 250px;
+        /* Adjust the matrix container's height on smaller screens */
+    }
+}
+
+
+/* Medium screens (tablets and smaller desktops) */
+
+@media (max-width: 900px) {
+    /* Adjust button sizes for medium screens */
+    button {
+        font-size: 1.2rem;
+        /* Slightly reduce font size for tablets */
+    }
+    select {
+        font-size: 1rem;
+    }
+    #Matrix th,
+    #Matrix td {
+        padding: 6px;
+        /* Adjust padding in table cells */
+    }
 }
