@@ -28,28 +28,23 @@ body {
 }
 
 
-/* Matrix Content Area (Scrollable) */
+/* Matrix Content Area: Make sure the table spans the full width of the screen */
 
 #matrixContainer {
-    overflow-x: auto;
-    /* Allow horizontal scrolling */
-    overflow-y: hidden;
-    /* No vertical scroll */
     width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
     margin-top: 20px;
+    overflow-x: hidden;
+    /* Disable scrolling */
 }
 
 
-/* Matrix Table */
+/* Matrix Table: Take full width and expand dynamically */
 
 #Matrix {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
     table-layout: fixed;
-    /* Ensure consistent table layout */
+    /* Distribute space evenly across columns */
 }
 
 #Matrix th,
@@ -58,33 +53,31 @@ body {
     text-align: center;
     border: 1px solid #ddd;
     min-width: 50px;
-    /* Ensure minimum width for readability */
-    max-width: 150px;
-    /* Prevent columns from growing too wide */
+    /* Prevent columns from shrinking too much */
     word-wrap: break-word;
-    /* Ensure content breaks properly if too long */
+    /* Break long words in table cells */
 }
 
 
-/* Responsive Layout Adjustments */
+/* Ensure that the table and columns expand to fill available space */
+
+#Matrix th,
+#Matrix td {
+    flex: 1;
+}
+
+
+/* Responsive Layout Adjustments for smaller screens */
 
 @media (max-width: 1200px) {
     #Matrix {
-        display: block;
-        /* Ensure table content stays in a single line */
         width: 100%;
-        overflow-x: auto;
-        /* Allow horizontal scroll */
     }
 }
 
 @media (max-width: 600px) {
     #Matrix {
-        display: block;
-        /* Ensure table is scrollable on smaller screens */
         width: 100%;
-        overflow-x: auto;
-        /* Allow horizontal scroll */
     }
 }
 
