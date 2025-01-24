@@ -5,14 +5,11 @@ body {
     height: 100%;
     margin: 0;
     overflow-y: auto;
-    /* Allows vertical scrolling if content exceeds the viewport */
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    /* Ensure that elements are stacked vertically */
     justify-content: flex-start;
-    /* Align elements from the top */
     align-items: center;
-    /* Center elements horizontally */
 }
 
 
@@ -22,33 +19,26 @@ body {
 .containerRow {
     display: flex;
     flex-direction: column;
-    /* Ensure content is stacked vertically */
     align-items: center;
-    /* Center elements horizontally inside the container */
     width: 100%;
-    max-width: 800px;
-    /* Limit max width for better layout */
+    max-width: 1200px;
     margin: 10px 0;
-    /* Space between elements */
     padding: 15px;
     box-sizing: border-box;
-    /* Include padding in width calculation */
 }
 
 
 /* Matrix Content Area (Scrollable) */
 
 #matrixContainer {
-    overflow-y: auto;
-    /* Allow scrolling if content is too large */
-    max-height: 300px;
-    /* Set a max height for the matrix */
+    overflow-x: auto;
+    /* Allow horizontal scrolling */
+    overflow-y: hidden;
+    /* No vertical scroll */
     width: 100%;
-    /* Ensure the container uses the full width */
     padding: 10px;
     box-sizing: border-box;
     margin-top: 20px;
-    /* Ensure some space above the matrix */
 }
 
 
@@ -56,11 +46,10 @@ body {
 
 #Matrix {
     width: 100%;
-    /* Dynamically fill the width of the container */
     border-collapse: collapse;
     margin-bottom: 20px;
-    table-layout: auto;
-    /* Allow columns to resize based on content */
+    table-layout: fixed;
+    /* Ensure consistent table layout */
 }
 
 #Matrix th,
@@ -68,24 +57,48 @@ body {
     padding: 8px;
     text-align: center;
     border: 1px solid #ddd;
+    min-width: 50px;
+    /* Ensure minimum width for readability */
+    max-width: 150px;
+    /* Prevent columns from growing too wide */
+    word-wrap: break-word;
+    /* Ensure content breaks properly if too long */
 }
 
 
-/* Fix for <h2> title and other content */
+/* Responsive Layout Adjustments */
+
+@media (max-width: 1200px) {
+    #Matrix {
+        display: block;
+        /* Ensure table content stays in a single line */
+        width: 100%;
+        overflow-x: auto;
+        /* Allow horizontal scroll */
+    }
+}
+
+@media (max-width: 600px) {
+    #Matrix {
+        display: block;
+        /* Ensure table is scrollable on smaller screens */
+        width: 100%;
+        overflow-x: auto;
+        /* Allow horizontal scroll */
+    }
+}
+
+
+/* Additional Styling for the Matrix Div */
 
 #matrixDiv {
     display: flex;
     flex-direction: column;
-    /* Stack elements vertically */
     align-items: center;
-    /* Center content horizontally */
     justify-content: flex-start;
-    /* Ensure that content starts from the top */
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
-    height: auto;
-    /* Allow the height to adjust based on content */
 }
 
 
@@ -93,84 +106,4 @@ body {
 
 #matrixDiv h2 {
     margin-top: 0;
-    /* Remove any default margin from top */
-}
-
-
-/* Add some spacing between sections in matrixDiv */
-
-#matrixDiv>* {
-    margin-bottom: 20px;
-}
-
-
-/* Optional: Modify containerRow inside matrixDiv to ensure alignment */
-
-#matrixDiv .containerRow {
-    display: flex;
-    flex-direction: column;
-    /* Ensure vertical stacking */
-    align-items: center;
-    /* Center horizontally */
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-
-/* Adjust the style for the final result and operations history */
-
-#finalResult,
-#operationsP {
-    display: flex;
-    flex-direction: column;
-    /* Stack elements vertically */
-    align-items: center;
-    /* Center horizontally */
-    width: 100%;
-}
-
-
-/* Media Queries for Smaller Screens (Responsive Design) */
-
-
-/* Small screens (mobile devices) */
-
-@media (max-width: 600px) {
-    /* Adjust font size for smaller screens */
-    button {
-        font-size: 1rem;
-        /* Make buttons slightly smaller */
-    }
-    select {
-        font-size: 0.9rem;
-        /* Reduce font size in selects */
-    }
-    #Matrix th,
-    #Matrix td {
-        padding: 5px;
-        /* Reduce padding in table cells */
-    }
-    #matrixContainer {
-        max-height: 250px;
-        /* Adjust the matrix container's height on smaller screens */
-    }
-}
-
-
-/* Medium screens (tablets and smaller desktops) */
-
-@media (max-width: 900px) {
-    /* Adjust button sizes for medium screens */
-    button {
-        font-size: 1.2rem;
-        /* Slightly reduce font size for tablets */
-    }
-    select {
-        font-size: 1rem;
-    }
-    #Matrix th,
-    #Matrix td {
-        padding: 6px;
-        /* Adjust padding in table cells */
-    }
 }
