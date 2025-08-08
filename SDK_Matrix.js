@@ -6,13 +6,13 @@ var DICT = {};
 var PARAMETERS = [];
 var EQULATIONSYSTEM = '';
 var MATRIXBYOPERATION = {};
-var OPERATIONCOUNT = 0; //parameter that represents the number 
+var OPERATIONCOUNT = 0; //parameter that represents the number of operations in the matrix calculation
 var ZEROLIST = [];
 var FREEPARAMETSERS = {};
 
 /* 
 function showMatrix is the function that 
-show the matrix on the screen -after every calculate
+show the matrix on the screen - after every calculate
 */
 function showMatrix(matrix) {
     for (var j in matrix) {
@@ -20,6 +20,16 @@ function showMatrix(matrix) {
             var display = typeof matrix[j][k] == "number" ? matrix[j][k] : matrix[j][k].display();
             document.getElementById(String(j) + String(k)).value = display;
         }
+    }
+}
+
+function calculateIfNumberOrFraction(display) {
+    if (!isNumber(display)) {
+        if (display.mone == display.mechane || display.mone % display.mechane == 0) {
+            //return display.displayInteger();
+        }
+    } else {
+        return display
     }
 }
 
@@ -175,6 +185,7 @@ function displayFinalResult() {
                 if (isNumber(PARAMETERS[i][COLUMNS - 1])) {
                     value = PARAMETERS[i][COLUMNS - 1];
                 } else {
+
                     value = PARAMETERS[i][COLUMNS - 1].display();
                 }
 
