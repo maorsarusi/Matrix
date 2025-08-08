@@ -10,7 +10,7 @@ var isDown = true; // parameter that says if we in down rank or up
 
 /* 
 function calculateMatrix is the main function that manage the calculate the whole matrix
-*/
+
 function calculateMatrix() {
     document.getElementById("newValues").style.display = "none";
     document.getElementById("formula").innerHTML = "";
@@ -28,7 +28,7 @@ function calculateMatrix() {
         }
     }
 }
-
+*/
 /* 
 function calculateMatrix() is the manage function to calculte the matrix by AI
 */
@@ -36,10 +36,20 @@ function calculateMatrix() {
     document.getElementById("operationsP").style.display = "flex";
     var bad = rankDown();
     if (!bad) {
+        convertLeadersToNumber();
         rankUp();
     }
     displayNewMatrix();
 }
+
+function convertLeadersToNumber() {
+    for (let i = 0; i < ROWS; i++) {
+        if (!isNumber(PARAMETERS[i][i]) && PARAMETERS[i][i].mechane % PARAMETERS[i][i].mone == 0) {
+            PARAMETERS[i][i] = PARAMETERS[i][i].mechane / PARAMETERS[i][i].mone;
+        }
+    }
+}
+
 /* 
 function rankDown() is the manage function of rank the 
 matrix under the one's
@@ -53,6 +63,8 @@ function rankDown() {
         for (let j = i + 1; j < ROWS; j++) {
             zeroDown(PARAMETERS[j][i], j, i)
             bad = isBadLine(j);
+            showMatrix(PARAMETERS);
+
             if (bad) {
                 return bad; // means that we have a bad line
             }
@@ -156,6 +168,7 @@ function stepByStep() {
             for (let i = stepParameter + 1; i < ROWS; i++) {
                 zeroDown(PARAMETERS[i][stepParameter], i, stepParameter);
             }
+            convertLeadersToNumber();
         }
         stepParameter++;
     } else { // ranking up
