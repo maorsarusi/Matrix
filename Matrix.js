@@ -28,6 +28,7 @@ function manageOperations() {
     var val = returnSelectOption("operations");
     val == "1" ? manageSwitch() : (val == "2" ? manageMultiply() : manageAdd());
     displayNewMatrix();
+    window.scrollBy(0, 0);
 }
 
 /* 
@@ -129,6 +130,7 @@ function manageAdd() {
     var sign = thisVal < 0 ? '-' : '+';
     var operation = `R${currentRow} => R${currentRow} ${sign} ${valtoPrint}R${rowNum}`;
     document.getElementById("operationsOrder").innerHTML += `<div id="R${OPERATIONCOUNT}"><a  onclick="reverseByOperations('${OPERATIONCOUNT}')">${operation}</a></br></div>`;
+
 
 }
 /* 
