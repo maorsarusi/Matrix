@@ -1,11 +1,9 @@
-/* Ensure the body and html fill the screen and allow scrolling */
+/* כל המסמך יתפרס לגובה ולרוחב מלאים */
 
 html,
 body {
     height: 100%;
     margin: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -13,7 +11,7 @@ body {
 }
 
 
-/* Ensure all container elements are stacked vertically */
+/* קונטיינרים */
 
 .container,
 .containerRow {
@@ -28,75 +26,88 @@ body {
 }
 
 
-/* Matrix Content Area: Make sure the table spans the full width of the screen */
+/* אזור המטריצה */
 
 #matrixContainer {
+    overflow-x: auto;
+    /* גלילה אופקית אם יש הרבה עמודות */
     width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
     margin-top: 20px;
-    overflow-x: hidden;
-    /* Disable scrolling */
 }
 
 
-/* Matrix Table: Take full width and expand dynamically */
+/* טבלה */
 
 #Matrix {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed;
-    /* Distribute space evenly across columns */
+    margin-bottom: 20px;
+    table-layout: auto;
+    /* עמודות יתאימו אוטומטית */
 }
+
+
+/* תאים */
 
 #Matrix th,
 #Matrix td {
-    padding: 8px;
+    padding: 4px;
     text-align: center;
     border: 1px solid #ddd;
-    min-width: 50px;
-    /* Prevent columns from shrinking too much */
     word-wrap: break-word;
-    /* Break long words in table cells */
 }
 
 
-/* Ensure that the table and columns expand to fill available space */
+/* עיצוב input בתוך התאים */
 
-#Matrix th,
-#Matrix td {
-    flex: 1;
+#Matrix td input {
+    width: 60px;
+    /* אפשר לשנות לפי הצורך או לתת JS לחשב */
+    text-align: center;
+    padding: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+#Matrix td input:focus {
+    border-color: #007bff;
 }
 
 
-/* Responsive Layout Adjustments for smaller screens */
-
-@media (max-width: 1200px) {
-    #Matrix {
-        width: 100%;
-    }
-}
-
-@media (max-width: 600px) {
-    #Matrix {
-        width: 100%;
-    }
-}
-
-
-/* Additional Styling for the Matrix Div */
+/* המטריצה עצמה במרכז */
 
 #matrixDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
 }
 
 
-/* Styling for <h2> */
+/* כותרת */
 
 #matrixDiv h2 {
     margin-top: 0;
+}
+
+
+/* התאמה למסכים קטנים */
+
+@media (max-width: 600px) {
+    #Matrix th,
+    #Matrix td {
+        padding: 3px;
+    }
+    #Matrix td input {
+        width: 40px;
+        padding: 3px;
+        font-size: 0.85rem;
+    }
 }
