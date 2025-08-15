@@ -278,20 +278,31 @@ function createMatrix(color) {
     document.getElementById("startDiv").style.display = "none";
     document.getElementById("matrixDiv").style.display = "flex";
 
+    // חישוב גודל הפונט לפי כמות עמודות
+    let fontSize = Math.max(12, 22 - COLUMNS);
+    let cellWidth = Math.max(30, 80 - COLUMNS * 3);
+
     var table = document.getElementById("Matrix");
+    table.innerHTML = ""; // ניקוי מטריצה קיימת
     for (let i = 0; i < ROWS; i++) {
         var row = table.insertRow();
         for (let j = 0; j < COLUMNS; j++) {
-            var isBorder = ""
+            var isBorder = "";
             if (j == COLUMNS - 1) {
-                isBorder = ` border-left: 5px solid ${color};`
+                isBorder = ` border-left: 5px solid ${color};`;
             }
             var c = row.insertCell(-1);
-            var id = String(i) + String(j)
-            c.innerHTML = '<input type="text" inputmode="numeric" pattern="[0-9]*"' + `id="${id}"` + ` style="${isBorder}"/>`;
+            var id = String(i) + String(j);
+            c.innerHTML =
+                `<input type="text" 
+                        inputmode="numeric" 
+                        pattern="[0-9]*" 
+                        id="${id}" 
+                        style="width:${cellWidth}px; font-size:${fontSize}px;${isBorder}"/>`;
         }
     }
 }
+
 
 function getFormula() {
     var formula = '';
