@@ -1,4 +1,10 @@
-/* כל המסמך יתפרס לגובה ולרוחב מלאים */
+/* ========================== */
+
+
+/* בסיס - כל הדף בטור אנכי  */
+
+
+/* ========================== */
 
 html,
 body {
@@ -6,17 +12,27 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    /* תמיד טור אנכי */
     justify-content: flex-start;
     align-items: center;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 
-/* קונטיינרים */
+/* ========================== */
+
+
+/* קונטיינרים                */
+
+
+/* ========================== */
 
 .container,
 .containerRow {
     display: flex;
     flex-direction: column;
+    /* תמיד טור */
     align-items: center;
     width: 100%;
     max-width: 1200px;
@@ -26,7 +42,13 @@ body {
 }
 
 
-/* אזור המטריצה */
+/* ========================== */
+
+
+/* אזור המטריצה               */
+
+
+/* ========================== */
 
 #matrixContainer {
     overflow-x: auto;
@@ -38,7 +60,13 @@ body {
 }
 
 
-/* טבלה */
+/* ========================== */
+
+
+/* טבלה                      */
+
+
+/* ========================== */
 
 #Matrix {
     width: 100%;
@@ -48,9 +76,6 @@ body {
     /* עמודות יתאימו אוטומטית */
 }
 
-
-/* תאים */
-
 #Matrix th,
 #Matrix td {
     padding: 4px;
@@ -59,12 +84,8 @@ body {
     word-wrap: break-word;
 }
 
-
-/* עיצוב input בתוך התאים */
-
 #Matrix td input {
     width: 60px;
-    /* אפשר לשנות לפי הצורך או לתת JS לחשב */
     text-align: center;
     padding: 5px;
     font-size: 1rem;
@@ -79,7 +100,13 @@ body {
 }
 
 
-/* המטריצה עצמה במרכז */
+/* ========================== */
+
+
+/* המטריצה עצמה במרכז        */
+
+
+/* ========================== */
 
 #matrixDiv {
     display: flex;
@@ -90,15 +117,18 @@ body {
     box-sizing: border-box;
 }
 
-
-/* כותרת */
-
 #matrixDiv h2 {
     margin-top: 0;
 }
 
 
-/* התאמה למסכים קטנים */
+/* ========================== */
+
+
+/* התאמה למסכים קטנים         */
+
+
+/* ========================== */
 
 @media (max-width: 600px) {
     #Matrix th,
@@ -109,5 +139,9 @@ body {
         width: 40px;
         padding: 3px;
         font-size: 0.85rem;
+    }
+    .container,
+    .containerRow {
+        padding: 10px;
     }
 }
